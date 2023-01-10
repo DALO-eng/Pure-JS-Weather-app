@@ -38,6 +38,10 @@ function getWeather(city) {
   };
 }
 
+function kelvinToCelcuis(temp) {
+  return (temp - 273.15).toFixed(2);
+}
+
 function addWeatherToPage(data) {
   result.innerHTML = "";
 
@@ -48,7 +52,7 @@ function addWeatherToPage(data) {
   const resultClimate = document.createElement("h3");
 
   resultImg.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-  resultTemp.innerText = data.main.temp;
+  resultTemp.innerText = `${kelvinToCelcuis(data.main.temp)}°C`;
   resultCity.innerText = data.name;
   resultClimate.innerText = data.weather[0].main;
 
